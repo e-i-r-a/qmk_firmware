@@ -18,7 +18,7 @@ Layer 2 gets the symbols (shifted number keys) to your home row.
 
 ## Layer 3 / Navigation
 
-Layer 3 is the navigation layer, with arows on H, J, K, ; (like in vim)
+Layer 3 is the navigation layer, with arows on H, J, K, L (like in vim)
 and some other navigation keys logically arranged.
 
 As I often use shift, ctrl and alt together with the arrow keys, they are positioned under the right hand fingers.
