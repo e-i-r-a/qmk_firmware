@@ -27,7 +27,7 @@
 #define MY_COMM  MT(MOD_LGUI, KC_COMM)
 #define MY_DOT   MT(MOD_RCTL, KC_DOT)
 #define MY_SLSH  MT(MOD_RSFT, KC_SLSH)
-#define MY_RIGHT MT(KC_RIGHT_ALT, KC_RIGHT)
+#define MY_RIGHT MT(MOD_RALT, KC_RIGHT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
