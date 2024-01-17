@@ -1,16 +1,33 @@
+/* Copyright 2024 Raphael Eicher
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include QMK_KEYBOARD_H
 
 // definitions of my special keys
-#define MY_ESC  LT(3,KC_ESC)
-#define MY_A    LT(3,KC_A)
-#define MY_Z    MT(MOD_LSFT, KC_Z)
-#define MY_X    MT(MOD_LCTL, KC_X)
-#define MY_C    MT(MOD_LGUI, KC_C)
-#define MY_V    MT(MOD_LALT, KC_V)
-#define MY_M    MT(MOD_LALT, KC_M)
-#define MY_COMM MT(MOD_LGUI, KC_COMM)
-#define MY_DOT  MT(MOD_RCTL, KC_DOT)
-#define MY_SLSH MT(MOD_RSFT, KC_SLSH)
+#define MY_ESC   LT(3,KC_ESC)
+#define MY_A     LT(3,KC_A)
+#define MY_Z     MT(MOD_LSFT, KC_Z)
+#define MY_X     MT(MOD_LCTL, KC_X)
+#define MY_C     MT(MOD_LGUI, KC_C)
+#define MY_V     MT(MOD_LALT, KC_V)
+#define MY_M     MT(MOD_LALT, KC_M)
+#define MY_COMM  MT(MOD_LGUI, KC_COMM)
+#define MY_DOT   MT(MOD_RCTL, KC_DOT)
+#define MY_SLSH  MT(MOD_RSFT, KC_SLSH)
+#define MY_RIGHT MT(KC_RIGHT_ALT, KC_RIGHT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -38,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |        | LSft   | LCtl   | LGui   | LAlt   |        |        | LAlt   | LGui   | RCtl   | RSft   |        |
      * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
      * | Ctrl   | LGui   | Macro0 | Layer4 | Layer1 |      Space      | Layer2 | Left   | Down   | Up     | Right  |
-     * |        |        |        |        |        |                 |        |        |        |        |        |
+     * |        |        |        |        |        |                 |        |        |        |        | AltGr  |
      * `-----------------------------------------------------------------------------------------------------------'
      */
 
@@ -46,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
         MY_ESC,  MY_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
         KC_LSFT, MY_Z,    MY_X,    MY_C,    MY_V,    KC_B,    KC_N,    MY_M,    MY_COMM, MY_DOT,  MY_SLSH, KC_RSFT,
-        KC_LCTL, KC_LGUI, MACRO_0, MO(4),   MO(1),       KC_SPC,       MO(2),   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+        KC_LCTL, KC_LGUI, MACRO_0, MO(4),   MO(1),       KC_SPC,       MO(2),   KC_LEFT, KC_DOWN, KC_UP,   MY_RIGHT
         ),
 
     /*
