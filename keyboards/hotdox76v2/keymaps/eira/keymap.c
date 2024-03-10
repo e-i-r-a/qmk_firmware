@@ -76,7 +76,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                       |        |        |        |           |        |        |        |
      *                                       `--------------------------'           `--------------------------'
      */
-    LAYOUT_ergodox_pretty(KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_NO, KC_MUTE, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQUAL, KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_NO, KC_NO, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, MY_ESC, MY_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_ENT, KC_LSFT, MY_Z, MY_X, MY_C, MY_V, KC_B, TG(5), KC_CAPS, KC_N, MY_M, MY_COMM, MY_DOT, MY_SLSH, KC_RSFT, KC_LCTL, KC_LGUI, KC_NO, KC_NO, MO(4), MO(4), KC_LEFT, KC_DOWN, KC_UP, MY_RGHT, KC_LEFT, KC_RGHT, MACRO_0, KC_RALT, KC_UP, KC_VOLU, MY_L2, KC_DEL, KC_DOWN, KC_VOLD, KC_ENT, MY_L3),
+
+    // clang-format off
+    LAYOUT_ergodox_pretty(
+        KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_NO,              KC_MUTE, KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQUAL,
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_NO,              KC_NO,   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+        MY_ESC,  MY_A,    KC_S,    KC_D,    KC_F,    KC_G,                                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
+        KC_LSFT, MY_Z,    MY_X,    MY_C,    MY_V,    KC_B,    TG(5),              KC_CAPS, KC_N,    MY_M,    MY_COMM, MY_DOT,  MY_SLSH, KC_RSFT,
+        KC_LCTL, KC_LGUI, KC_NO,   KC_NO,   MO(4),                                                  MO(4),   KC_LEFT, KC_DOWN, KC_UP,   MY_RGHT,
+                                                     KC_LEFT, KC_RGHT,            MACRO_0, KC_RALT,
+                                                              KC_UP,              KC_VOLU,
+                                            MY_L2,   KC_DEL,  KC_DOWN,            KC_VOLD, KC_ENT,  MY_L3
+    ),
     /* Keymap 1: Navigation Layer
      *
      * ,----------------------------------------------------------------.           ,----------------------------------------------------------------.
@@ -92,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | Trans    |        |        |        |        |        |        |           |        | Home   | PgDn   | PgUp   | End    | Trans  | Trans    |
      * |          |        |        |        |        |        |        |           |        |        |        |        |        |        |          |
      * `----------+--------+--------+--------+--------+-----------------'           `--------+--------+--------+--------+--------+--------+----------'
-     *   | Trans  | Trans  |        |        | Trans  |                                               | Trans  | Trans  | Trans  | Trans  |        |
+     *   | Trans  | Trans  |        |        | Trans  |                                               | Trans  | Trans  | Trans  | Trans  | App    |
      *   |        |        |        |        |        |                                               |        |        |        |        |        |
      *   `--------------------------------------------'                                               `--------------------------------------------'
      *                                                 -----------------             -----------------
@@ -113,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              KC_NO,   KC_BSPC, KC_DEL,  KC_INS,  KC_NO,   KC_PSCR, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_LCTL, KC_LALT, KC_LSFT, KC_NO,                                KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT, KC_DQUO,
         KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              KC_NO,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_TRNS, KC_TRNS,
-        KC_LCTL, KC_LGUI, KC_NO,   KC_NO,   MO(4),                                                  MO(4),   KC_LEFT, KC_DOWN, KC_UP,   MY_RGHT,
+        KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_TRNS,                                                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_APP,
                                                      KC_TRNS, KC_TRNS,            KC_TRNS, KC_TRNS,
                                                               KC_TRNS,            KC_TRNS,
                                             KC_TRNS, KC_TRNS, KC_TRNS,            KC_TRNS, KC_TRNS, KC_TRNS
@@ -275,7 +286,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             RGB_TOG, KC_NO,   RGB_SAD,            RGB_VAD, RGB_MOD, RGB_RMOD
     )
 };
-
+// clang-format on
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
