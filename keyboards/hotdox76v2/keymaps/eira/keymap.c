@@ -45,6 +45,23 @@ enum custom_keycodes {
     MACRO_0 = SAFE_RANGE,
 };
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        switch (keycode) {
+            case MACRO_0:
+                /*
+                 * I use this sequence (RALT, LALT+TAB) to
+                 * toggle keyboard capture state in my VirtualBox VM (RALT)
+                 * and then switch to other application (LALT+TAB)
+                 */
+                SEND_STRING(SS_TAP(X_RALT)SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
+                return false;
+        }
+    }
+
+    return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Keymap 0: QWERTY layer
@@ -276,8 +293,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                       `--------------------------'           `--------------------------'
  */
     LAYOUT_ergodox_pretty(
-        QK_BOOT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        QK_BOOT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW,RGB_M_SN,RGB_M_K, KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              KC_NO,   RGB_M_P, RGB_M_T, RGB_M_TW,RGB_M_G, RGB_M_X, KC_NO,
         TO(0),   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
@@ -287,20 +304,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 // clang-format on
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-        switch (keycode) {
-            case MACRO_0:
-                /*
-                 * I use this sequence (RALT, LALT+TAB) to
-                 * toggle keyboard capture state in my VirtualBox VM (RALT)
-                 * and then switch to other application (LALT+TAB)
-                 */
-                SEND_STRING(SS_TAP(X_RALT)SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
-                return false;
-        }
-    }
-
-    return true;
-};

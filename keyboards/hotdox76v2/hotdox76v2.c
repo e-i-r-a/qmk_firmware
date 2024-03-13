@@ -134,18 +134,21 @@ void render_layer(uint8_t layer) {
             render_layer_helper_fun(1, PSTR("0:BASE"), 12, 6);
             break;
         case 1:
-            render_layer_helper_fun(1, PSTR("1:NAVIGATION"), 0, 8);
+            render_layer_helper_fun(1, PSTR("1:NAV"), 12, 5);
             break;
         case 2:
-            render_layer_helper_fun(1, PSTR("2:NUMBER"), 0, 8);
+            render_layer_helper_fun(1, PSTR("2:NUM"), 12, 5);
             break;
         case 3:
-            render_layer_helper_fun(1, PSTR("3:SYMBOL"), 0, 8);
+            render_layer_helper_fun(1, PSTR("3:SYM"), 12, 5);
             break;
         case 4:
-            render_layer_helper_fun(1, PSTR("4:MEDIA"), 0, 8);
+            render_layer_helper_fun(1, PSTR("4:FUNC"), 12, 6);
             break;
         case 5:
+            render_layer_helper_fun(1, PSTR("5:RGB"), 18, 5);
+            break;
+        case 6:
         default:
             render_layer_helper_fun(1, PSTR("-:OTHER"), 0, 8);
             break;
