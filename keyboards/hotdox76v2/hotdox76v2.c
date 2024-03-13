@@ -132,6 +132,7 @@ void render_layer(uint8_t layer) {
     switch (layer) {
         case 0:
             render_layer_helper_fun(1, PSTR("0:BASE"), 12, 6);
+            render_layer_helper_fun(1, PSTR("0:BASE"), 12, 6);
             break;
         case 1:
             render_layer_helper_fun(1, PSTR("1:NAV"), 12, 5);
@@ -150,6 +151,7 @@ void render_layer(uint8_t layer) {
             break;
         case 6:
         default:
+            render_layer_helper_fun(1, PSTR("-:OTHER"), 0, 8);
             render_layer_helper_fun(1, PSTR("-:OTHER"), 0, 8);
             break;
     }
