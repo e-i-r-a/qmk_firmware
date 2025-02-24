@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | LSft   | Z      | X      | C      | V      | B      | N      | M      | ,      | .      | /      | RSft   |
      * |        | LSft   | LCtl   | LGui   | LAlt   |        |        | LAlt   | LGui   | RCtl   | RSft   |        |
      * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
-     * | Ctrl   | LGui   | Macro0 | Layer4 | Layer1 |      Space      | Layer2 | Left   | Down   | Up     | Right  |
+     * | Up     | Down   | Layer5 | Layer4 | Layer1 |      Space      | Layer2 | Layer4 | Layer5 | Left   | Right  |
      * |        |        |        |        |        |                 |        |        |        |        | AltGr  |
      * `-----------------------------------------------------------------------------------------------------------'
      */
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
         MY_ESC,  MY_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
         KC_LSFT, MY_Z,    MY_X,    MY_C,    MY_V,    KC_B,    KC_N,    MY_M,    MY_COMM, MY_DOT,  MY_SLSH, KC_RSFT,
-        KC_LCTL, KC_LGUI, MACRO_0, MO(4),   MO(1),       KC_SPC,       MO(2),   KC_LEFT, KC_DOWN, KC_UP,   MY_RIGHT
+        KC_UP,   KC_DOWN, MO(5),   MO(4),   MO(1),       KC_SPC,       MO(2),   MO(4),   MO(5),   KC_LEFT, MY_RIGHT
         ),
 
     /*
@@ -164,6 +164,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
         KC_TRNS, KC_LSFT, KC_LCTL, KC_LGUI, KC_LALT, KC_NO,   KC_NO,   KC_LALT, KC_LGUI, KC_RCTL, KC_RSFT, KC_RSFT,
         KC_TRNS, KC_TRNS, KC_NO,   KC_TRNS, KC_NO,       KC_TRNS,      KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+        ),
+    /*
+     * Layer 5 / The Code (or macro) Key Layer
+     *
+     * ,-----------------------------------------------------------------------------------------------------------.
+     * | Macro0 | F2     | F3     | F4     | F5     | F6     | F7     | F8     | F9     | F10    | F11    | F12    |
+     * |        |        |        |        |        |        |        |        |        |        |        |        |
+     * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+     * | F1     | F2     | F3     | F4     | F5     | F6     | F7     | F8     | F9     | F10    | F11    | F12    |
+     * |        |        |        |        |        |        |        |        |        |        |        |        |
+     * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+     * | Trans  | LSft   | LCtl   | LGui   | LAlt   |        |        | LAlt   | LGui   | RCtl   | RSft   | RSft   |
+     * |        |        |        |        |        |        |        |        |        |        |        |        |
+     * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+     * | Trans  | Trans  |        | Trans  |        |      Trans      |        | Trans  | Trans  | Trans  | Trans  |
+     * |        |        |        |        |        |                 |        |        |        |        |        |
+     * `-----------------------------------------------------------------------------------------------------------'
+     */
+
+    [4] = LAYOUT_planck_mit(
+        MACRO_0, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,       KC_TRNS,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
         )
 };
 
@@ -173,11 +197,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
             case MACRO_0:
                 /*
-                 * I use this sequence (RALT, LALT+TAB) to
-                 * toggle keyboard capture state in my VirtualBox VM (RALT)
+                 * I use this sequence (LALT+LCTL+Left, LALT+TAB) to
+                 * toggle keyboard capture state in my Hyper-V VM (LALT+LCTL+Left)
                  * and then switch to other application (LALT+TAB)
                  */
-                SEND_STRING(SS_TAP(X_RALT)SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
+                SEND_STRING(SS_DOWN(X_LALT)SS_DOWN(X_LCTL)SS_TAP(X_LEFT)SS_UP(X_LCTL)SS_UP(X_LALT)SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
                 return false;
         }
     }
