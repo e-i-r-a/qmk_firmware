@@ -50,11 +50,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
             case MACRO_0:
                 /*
-                 * I use this sequence (RALT, LALT+TAB) to
-                 * toggle keyboard capture state in my VirtualBox VM (RALT)
+                 * I use this sequence (LALT+LCTL+LEFT, LALT+TAB) to
+                 * toggle keyboard capture state in my Hyper-V VM (LALT+LCTL+LEFT)
                  * and then switch to other application (LALT+TAB)
                  */
-                SEND_STRING(SS_TAP(X_RALT)SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
+                SEND_STRING(SS_DOWN(X_LALT)SS_DOWN(X_LCTL)SS_TAP(X_LEFT)SS_UP(X_LCTL)SS_UP(X_ALT)SS_DOWN(X_ALT)SS_TAP(X_TAB)SS_UP(X_LALT));
                 return false;
         }
     }
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *   |        |        |        |        |        |                                               |        |        |        |        | AltGr  |
      *   `--------------------------------------------'                                               `--------------------------------------------'
      *                                                ,-----------------.           ,-----------------.
-     *                                                | Left   | Right  |           | Macro0 | RAlt   |
+     *                                                | WrkSpcL| WrkSpcR|           | Macro0 | RAlt   |
      *                                                |        |        |           |        |        |
      *                                       ,--------|--------|--------|           |--------+--------+--------.
      *                                       |        |        | Up     |           | VolUp  |        |        |
@@ -101,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MY_ESC,  MY_A,    KC_S,    KC_D,    KC_F,    KC_G,                                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
         KC_LSFT, MY_Z,    MY_X,    MY_C,    MY_V,    KC_B,    TG(5),              KC_CAPS, KC_N,    MY_M,    MY_COMM, MY_DOT,  MY_SLSH, KC_RSFT,
         KC_LCTL, KC_LGUI, KC_NO,   KC_NO,   MO(4),                                                  MO(4),   KC_LEFT, KC_DOWN, KC_UP,   MY_RGHT,
-                                                     KC_LEFT, KC_RGHT,            MACRO_0, KC_RALT,
+                                               LGUI(KC_PGUP), LGUI(KC_PGDN),      MACRO_0, KC_RALT,
                                                               KC_UP,              KC_VOLU,
                                             MY_L2,   KC_DEL,  KC_DOWN,            KC_VOLD, KC_ENT,  MY_L3
     ),
