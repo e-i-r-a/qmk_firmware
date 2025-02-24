@@ -29,6 +29,10 @@
 #define MY_SLSH  MT(MOD_RSFT, KC_SLSH)
 #define MY_RIGHT MT(MOD_RALT, KC_RIGHT)
 
+enum custom_keycodes {
+    MACRO_0 = SAFE_RANGE,
+};
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
