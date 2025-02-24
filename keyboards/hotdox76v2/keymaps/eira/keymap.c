@@ -54,7 +54,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                  * toggle keyboard capture state in my Hyper-V VM (LALT+LCTL+LEFT)
                  * and then switch to other application (LALT+TAB)
                  */
-                SEND_STRING(SS_DOWN(X_LALT)SS_DOWN(X_LCTL)SS_TAP(X_LEFT)SS_UP(X_LCTL)SS_UP(X_ALT)SS_DOWN(X_ALT)SS_TAP(X_TAB)SS_UP(X_LALT));
+                SEND_STRING(SS_DOWN(X_LALT)SS_DOWN(X_LCTL)SS_TAP(X_LEFT)SS_UP(X_LCTL)SS_UP(X_LALT)SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
                 return false;
         }
     }
