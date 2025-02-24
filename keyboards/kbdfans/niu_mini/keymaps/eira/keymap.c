@@ -29,6 +29,23 @@
 #define MY_SLSH  MT(MOD_RSFT, KC_SLSH)
 #define MY_RIGHT MT(MOD_RALT, KC_RIGHT)
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        switch (keycode) {
+            case MACRO_0:
+                /*
+                 * I use this sequence (LALT+LCTL+Left, LALT+TAB) to
+                 * toggle keyboard capture state in my Hyper-V VM (LALT+LCTL+Left)
+                 * and then switch to other application (LALT+TAB)
+                 */
+                SEND_STRING(SS_DOWN(X_LALT)SS_DOWN(X_LCTL)SS_TAP(X_LEFT)SS_UP(X_LCTL)SS_UP(X_LALT)SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
+                return false;
+        }
+    }
+
+    return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /*
@@ -135,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
 
     [3] = LAYOUT_planck_mit(
-        RESET,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_BSPC, KC_DEL,  KC_INS,  KC_NO,   KC_PSCR, KC_TRNS,
+        QK_BOOTLOADER, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,   KC_BSPC, KC_DEL,  KC_INS,  KC_NO,   KC_PSCR, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_LCTL, KC_LALT, KC_LSFT, KC_NO,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT, KC_DQUO,
         KC_TRNS, KC_LSFT, KC_LCTL, KC_LGUI, KC_LALT, KC_NO,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,   KC_LCAP,
         KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_NO,       KC_TRNS,      KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_APP
@@ -189,22 +206,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,       KC_TRNS,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
         )
-};
-
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-        switch (keycode) {
-            case MACRO_0:
-                /*
-                 * I use this sequence (LALT+LCTL+Left, LALT+TAB) to
-                 * toggle keyboard capture state in my Hyper-V VM (LALT+LCTL+Left)
-                 * and then switch to other application (LALT+TAB)
-                 */
-                SEND_STRING(SS_DOWN(X_LALT)SS_DOWN(X_LCTL)SS_TAP(X_LEFT)SS_UP(X_LCTL)SS_UP(X_LALT)SS_DOWN(X_LALT)SS_TAP(X_TAB)SS_UP(X_LALT));
-                return false;
-        }
-    }
-
-    return true;
 };
