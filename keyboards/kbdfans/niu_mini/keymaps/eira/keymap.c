@@ -144,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | Reset  |        |        |        |        |        | Bksp   | Del    | Ins    |        | PScr   | Trans  |
      * |        |        |        |        |        |        |        |        |        |        |        |        |
      * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-     * | Trans  | Trans  | LCtl   | LAlt   | LSft   |        | Left   | Down   | Up     | Right  | '      | "      |
+     * | Trans  | Trans  | LCtl   | LAlt   | LSft   | LGui   | Left   | Down   | Up     | Right  | '      | "      |
      * |        |        |        |        |        |        |        |        |        |        |        |        |
      * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
      * | Trans  | LSft   | LCtl   | LGui   | LAlt   |        | Home   | PgDn   | PgUp   | End    |        | Caps   |
@@ -157,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [3] = LAYOUT_planck_mit(
         QK_BOOTLOADER, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,   KC_BSPC, KC_DEL,  KC_INS,  KC_NO,   KC_PSCR, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_LCTL, KC_LALT, KC_LSFT, KC_NO,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT, KC_DQUO,
+        KC_TRNS, KC_TRNS, KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT, KC_DQUO,
         KC_TRNS, KC_LSFT, KC_LCTL, KC_LGUI, KC_LALT, KC_NO,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,   KC_LCAP,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_APP
         ),
