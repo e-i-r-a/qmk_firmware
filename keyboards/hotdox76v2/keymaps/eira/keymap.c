@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | Trans    |        |        |        |        |        |        |           |        | Backsp | Del    | Ins    |        | PScr   | Trans    |
      * |          |        |        |        |        |        |        |           |        |        |        |        |        |        |          |
      * |----------+--------+--------+--------+--------+--------|        |           |        |--------+--------+--------+--------+--------+----------|
-     * | Trans    | Trans  | LCtrl  | LAlt   | LShift |        |________|           |________| Left   | Down   | Up     | Right  | '      | "        |
+     * | Trans    | Trans  | LCtrl  | LAlt   | LShift | LGui   |________|           |________| Left   | Down   | Up     | Right  | '      | "        |
      * |          |        |        |        |        |        |        |           |        |        |        |        |        |        |          |
      * |----------+--------+--------+--------+--------+--------|        |           |        |--------+--------+--------+--------+--------+----------|
      * | Trans    |        |        |        |        |        |        |           |        | Home   | PgDn   | PgUp   | End    | Trans  | Trans    |
@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LAYOUT_ergodox_pretty(
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              KC_NO,   KC_BSPC, KC_DEL,  KC_INS,  KC_NO,   KC_PSCR, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_LCTL, KC_LALT, KC_LSFT, KC_NO,                                KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT, KC_DQUO,
+        KC_TRNS, KC_TRNS, KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI,                              KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT, KC_DQUO,
         KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,              KC_NO,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_TRNS,                                                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_APP,
                                                      KC_TRNS, KC_TRNS,            KC_TRNS, KC_TRNS,
