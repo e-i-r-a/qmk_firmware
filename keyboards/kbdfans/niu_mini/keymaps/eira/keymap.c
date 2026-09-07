@@ -19,15 +19,17 @@
 // definitions of my special keys
 #define MY_ESC   LT(3,KC_ESC)
 #define MY_A     LT(3,KC_A)
-#define MY_Z     MT(MOD_LSFT, KC_Z)
-#define MY_X     MT(MOD_LCTL, KC_X)
-#define MY_C     MT(MOD_LOPT, KC_C)
-#define MY_V     MT(MOD_LCMD, KC_V)
-#define MY_M     MT(MOD_RCMD, KC_M)
-#define MY_COMM  MT(MOD_ROPT, KC_COMM)
-#define MY_DOT   MT(MOD_RCTL, KC_DOT)
-#define MY_SLSH  MT(MOD_RSFT, KC_SLSH)
-#define MY_RIGHT LOPT_T(KC_RIGHT)  //MT(MOD_RALT, KC_RIGHT)
+#define MY_Z     LSFT_T(KC_Z)      //MT(MOD_LSFT, KC_Z)
+#define MY_X     LCTL_T(KC_X)      //MT(MOD_LCTL, KC_X)
+#define MY_C     LOPT_T(KC_C)      //MT(MOD_LALT, KC_C)
+#define MY_V     LCMD_T(KC_V)      //MT(MOD_LGUI, KC_V)
+#define MY_M     RCMD_T(KC_M)      //MT(MOD_RGUI, KC_M)
+#define MY_COMM  LOPT_T(KC_COMM)   //MT(MOD_RALT, KC_COMM)
+#define MY_DOT   RCTL_T(KC_DOT)    //MT(MOD_RCTL, KC_DOT)
+#define MY_SLSH  RSFT_T(KC_SLSH)   //MT(MOD_RSFT, KC_SLSH)
+#define MY_RIGHT ROPT_T(KC_RIGHT)  //MT(MOD_RALT, KC_RIGHT)
+#define MY_LOCK  LCTL(LCMD(KC_Q))
+#define MY_MICM  LCMD(LSFT(KC_M))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -172,10 +174,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | Reset  |        |        |        |        |        |        |        |        |        |        |        |
      * |        |        |        |        |        |        |        |        |        |        |        |        |
      * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-     * |        |        |        |        |        |        |        |        |        |        |        |        |
+     * |        |        |        |        |        |        |        |        |        | LOCK   |        |        |
      * |        |        |        |        |        |        |        |        |        |        |        |        |
      * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-     * |        |        |        |        |        |        |        |        |        |        |        |        |
+     * |        |        |        |        |        |        |        | MUTE   |        |        |        |        |
      * |        |        |        |        |        |        |        |        |        |        |        |        |
      * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
      * |        |        | Trans  |        |        |                 |        |        | Trans  |        |        |
@@ -185,8 +187,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [5] = LAYOUT_planck_mit(
         QK_BOOT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   MY_LOCK, KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   MY_MICM, KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_TRNS, KC_NO,   KC_NO,       KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
         )
 };
