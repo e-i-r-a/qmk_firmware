@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
 
     [3] = LAYOUT_planck_mit(
-        KC_NO,   KC_NO,   KC_NO, . KC_NO,   LSFT(KC_LOPT), LCMD(KC_LOPT), KC_BSPC, KC_DEL,  KC_INS,  KC_NO,   KC_PSCR, KC_TRNS,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   LSFT(KC_LOPT), LCMD(KC_LOPT), KC_BSPC, KC_DEL,  KC_INS,  KC_NO,   KC_PSCR, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_LCTL, KC_LCMD, KC_LSFT,       KC_LOPT,       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT, KC_DQUO,
         KC_TRNS, KC_NO,   KC_NO,   KC_NO,   LSFT(KC_LCMD), KC_NO,         KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,   KC_LCAP,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS,                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_APP
