@@ -28,8 +28,8 @@
 #define MY_DOT   RCTL_T(KC_DOT)    //MT(MOD_RCTL, KC_DOT)
 #define MY_SLSH  RSFT_T(KC_SLSH)   //MT(MOD_RSFT, KC_SLSH)
 #define MY_RIGHT ROPT_T(KC_RIGHT)  //MT(MOD_RALT, KC_RIGHT)
-#define MY_LOCK  LCG_T(KC_Q)       //LCTL(LCMD(KC_Q))
-#define MY_MICM  LSG_T(KC_M)       //LCMD(LSFT(KC_M))
+#define MY_LOCK  LCTL(LCMD(KC_Q))
+#define MY_MICM  LCMD(LSFT(KC_M))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
